@@ -1,0 +1,6 @@
+export { Bird } from './Bird'
+export { Fox } from './Fox'
+export { Plane } from './Plane'
+export { Sky } from './Sky'
+export { House } from './House'
+export { Cat } from './Cat'
