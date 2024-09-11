@@ -168,12 +168,11 @@ export function House({
   useEffect(() => {
     if (houseRef.current) {
       houseRef.current.scale.set(0.009, 0.009, 0.009); // Adjust scale to reduce size
-      houseRef.current.position.set(0, -5, -10); // Adjust position if needed
-      houseRef.current.rotation.set(0, Math.PI / 2, 0);
+      houseRef.current.position.set(11, -4.5, -10); // Adjust position if needed
+      houseRef.current.rotation.set(0, Math.PI / 10, -12.5);
     }
 
-    // Adjust the camera's position to fit the model into the viewport
-    camera.position.set(0, 1, 15); // Move the camera back or adjust height
+    camera.position.set(0, 1, 15);
 
   }, [camera]);
 

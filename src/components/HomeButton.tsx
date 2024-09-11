@@ -4,6 +4,7 @@ import { Home } from "lucide-react";
 import Link from "next/link";
 
 const NavLink = motion(Link);
+
 const HomeButton = () => {
   return (
     <NavLink
@@ -13,7 +14,7 @@ const HomeButton = () => {
       href={"/"}
       target={"_self"}
       className="text-foreground  rounded-full flex items-center justify-center
-        custom-bg fixed top-4 left-4 w-fit self-start z-50
+        custom-bg fixed top-4 left-4 w-fit self-start z-[9999]
         "
       aria-label={"home"}
       prefetch={false}

@@ -5,11 +5,7 @@ import { useFrame } from '@react-three/fiber';
 import { a } from '@react-spring/three';
 import * as THREE from 'three';
 
-interface CatProps {
-  housePosition: THREE.Vector3;
-}
-
-export function Cat({ housePosition }: CatProps) {
+export function Cat() {
   const catRef = useRef<THREE.Group>(null);
   const { nodes, materials, animations } = useGLTF(cat) as any & { animations: any[] };
   const { actions } = useAnimations(animations, catRef);
@@ -20,24 +16,29 @@ export function Cat({ housePosition }: CatProps) {
       actions['Scene'].play();
     }
   }, [actions]);
-
   useFrame(({ clock }) => {
-    if (catRef.current && housePosition) {
-      const time = clock.getElapsedTime();
-      // Calculate the cat's position in a circular path around the house
-      catRef.current.position.x = housePosition.x + radius * Math.cos(time);
-      catRef.current.position.z = housePosition.z + radius * Math.sin(time);
-      catRef.current.position.y = housePosition.y + 0.5; // Keep the cat slightly above the ground
+    if (catRef.current) {
+      const time = clock.getElapsedTime() * 0.2;
+      const rightBoundary = 4.9; // limit right position
+      const leftBoundary = -4.9; // limit left position
+  
+      catRef.current.position.x = radius * Math.cos(time);
 
-      // Rotate the cat to face the direction it's moving
-      catRef.current.rotation.y = -time;
+      // if (catRef.current.position.x > rightBoundary) {
+      //   catRef.current.rotation.set(0, -Math.PI / 2, 0);
+      // } 
+      // else if (catRef.current.position.x < leftBoundary) {
+      //   catRef.current.rotation.set(0, Math.PI / 2, 0);
+
+      // }
     }
   });
 
   useEffect(() => {
     if (catRef.current) {
-      catRef.current.scale.set(0.005, 0.005, 0.005); // Adjust scale to reduce size
-      catRef.current.position.set(0, -5, 2); // Adjust position if needed
+      catRef.current.scale.set(0.005, 0.005, 0.005);
+      // catRef.current.position.set(10, -5, 2);
+      catRef.current.position.set(11, -5, 2);
       catRef.current.rotation.set(0, Math.PI / 2, 0);
     }
   }, []);
