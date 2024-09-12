@@ -10,7 +10,7 @@ import Card from "./Card";
 const Overview = () => {
   return (
     <>
-      <div className="px-52 pt-44 pb-20">
+      <div className="px-52 pt-24 pb-20" id='overview'>
         <motion.div variants={textVariant()} className="relative z-50">
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
             Introduction
@@ -32,7 +32,7 @@ const Overview = () => {
 
         <div className="mt-20 flex flex-wrap w-full justify-start gap-10">
           {profiles.map((profile, index) => (
-            <Card key={profile.title} index={index} {...profile} />
+            <Card key={`${profile.title}_${index}`} index={index} {...profile} />
           ))}
         </div>
       </div>

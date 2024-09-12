@@ -1,14 +1,16 @@
-import HomeBtn from "@/components/HomeButton";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-export default function SubPagesLayout({
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Profile",
+};
+
+export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-8 xs:px-16 lg:px-32 py-20">
-      <HomeBtn />
-      {children}
-    </main>
-  );
+  return children;
 }

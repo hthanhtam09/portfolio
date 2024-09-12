@@ -3,19 +3,21 @@
 import Sky from "@/components/Sky";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { usePathname } from "next/navigation";
-import { FC, Suspense } from "react";
+import { FC } from "react";
 import { profileTamDetail, profileThoDetail } from "@/assets";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/utils/motion";
 import HomeButton from "@/components/HomeButton";
-import Loading from "./loading";
 import Card from "@/components/Card";
 import { ProfileName } from "@/enums";
 import { profileDetail } from "@/constants";
+import { QuoteIcon } from "lucide-react";
+import Experience from "@/components/Experience";
+import TechSkill from "@/components/TechSkill";
 
 const ProfilePage: FC = () => {
   const pathName = usePathname();
-  const profileKey = pathName.split("/").pop() || "";
+  const profileKey = pathName.split("/").pop() ?? "";
   const pathProfileName = profileKey.replace(/-/g, " ");
   const profileImage =
     profileKey === ProfileName.TAM
@@ -27,9 +29,9 @@ const ProfilePage: FC = () => {
   const profileData = profileDetail[profileKey as keyof typeof profileDetail];
 
   return (
-    <Suspense fallback={<Loading />}>
+    <div className="relative">
       <motion.div
-        className="relative w-full h-screen flex justify-center items-center flex-col"
+        className="relative w-full h-screen flex justify-center items-center flex-col main"
         variants={fadeIn("right", "spring", 0.5, 0.75)}
       >
         <HomeButton />
@@ -54,14 +56,22 @@ const ProfilePage: FC = () => {
             {pathProfileName}
           </h1>
           <span className="text-white font-light md:text-[18px] sm:text-[18px] xs:text-[18px] text-[14px]">
-              - {profileData.position} -
+            - {profileData.position} -
           </span>
-
+          <hr className="my-4 w-1/2" />
           <motion.p
             variants={fadeIn("", "", 0.1, 1)}
             className="mt-4 text-white text-[17px] max-w-3xl leading-[30px] h-[150px] relative z-50"
           >
+            <QuoteIcon
+              aria-hidden="true"
+              className="size-3 mr-1 fill-white stroke-none -translate-y-1 inline"
+            />
             {profileData.description}
+            <QuoteIcon
+              aria-hidden="true"
+              className="size-3 ml-1 fill-white stroke-none translate-y-1 inline"
+            />
           </motion.p>
         </motion.div>
         <div className="px-52 mt-20 flex flex-wrap w-full justify-start gap-10">
@@ -75,9 +85,11 @@ const ProfilePage: FC = () => {
             />
           ))}
         </div>
-        <Sky isClouds={false} />
       </motion.div>
-    </Suspense>
+      <Experience profileKey={profileKey} />
+      <TechSkill profileKey={profileKey} />
+      <Sky isClouds={false} />
+    </div>
   );
 };
 

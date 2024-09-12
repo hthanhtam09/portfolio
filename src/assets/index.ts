@@ -9,6 +9,21 @@ import webIcon from "@/assets/icons/web-icon.png";
 import mobileIcon from "@/assets/icons/mobile-icon.png";
 import databaseIcon from "@/assets/icons/database-icon.png";
 import gameIcon from "@/assets/icons/game-icon.png";
+import githubIcon from '@/assets/icons/github-icon.png';
+import rightArrowIcon from '@/assets/icons/rightArrow-icon.png';
+import project1 from "@/assets/images/project-1.png";
+import typescriptIcon from '@/assets/icons/typescript-icon.svg';
+import tailwindcssIcon from '@/assets/icons/tailwindcss-icon.svg';
+import sassIcon from '@/assets/icons/sass-icon.svg';
+import reduxIcon from '@/assets/icons/redux-icon.svg';
+import reactIcon from '@/assets/icons/react-icon.svg';
+import nodeIcon from '@/assets/icons/nodejs-icon.svg';
+import nextjsIcon from '@/assets/icons/nextjs-icon.svg';
+import muiIcon from '@/assets/icons/mui-icon.svg';
+import mongodbIcon from '@/assets/icons/mongodb-icon.svg';
+import linkedinIcon from '@/assets/icons/linkedin-icon.svg';
+import javascriptIcon from '@/assets/icons/javascript-icon.svg';
+import expressIcon from '@/assets/icons/express-icon.svg';
 
 export {
     stars,
@@ -21,5 +36,20 @@ export {
     webIcon,
     mobileIcon,
     databaseIcon,
-    gameIcon
+    gameIcon,
+    githubIcon,
+    project1,
+    rightArrowIcon,
+    typescriptIcon,
+    tailwindcssIcon,
+    sassIcon,
+    reduxIcon,  
+    reactIcon,
+    nodeIcon,
+    nextjsIcon,
+    muiIcon,
+    mongodbIcon,
+    linkedinIcon,
+    javascriptIcon,
+    expressIcon
 }

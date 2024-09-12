@@ -16,6 +16,7 @@ export function Cat() {
       actions['Scene'].play();
     }
   }, [actions]);
+  
   useFrame(({ clock }) => {
     if (catRef.current) {
       const time = clock.getElapsedTime() * 0.2;

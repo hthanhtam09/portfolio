@@ -1,6 +1,5 @@
-import React from "react";
+import React, {Suspense, useState} from "react";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
 import Loader from "@/components/Loader";
 import { Bird, House, Cat } from "@/components/Models";
 import Sky from "./Sky";
@@ -12,25 +11,26 @@ const BillBoard = () => {
   const adjustHouseForScreenSize = () => {
     let screenScale, screenPosition;
 
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [0, -6.5, -43.4];
-    } else {
-      screenScale = [1, 1, 1];
-      screenPosition = [0, -6.5, -43.4];
-    }
+    if (typeof window !== 'undefined') {
 
+      if (window.innerWidth < 768) {
+        screenScale = [0.9, 0.9, 0.9];
+        screenPosition = [0, -6.5, -43.4];
+      } else {
+        screenScale = [1, 1, 1];
+        screenPosition = [0, -6.5, -43.4];
+      }
+    }
+    
     return [screenScale, screenPosition];
   };
 
   const [houseScale, housePosition] = adjustHouseForScreenSize();
 
   return (
-    <section className="w-full h-[80vh] relative">
+    <section className="w-full h-full relative" id='billboard'>
       <Canvas
-        className={`w-full h-screen bg-transparent z-50 ${
-          isRotating ? "cursor-grabbing" : "cursor-grab"
-        }`}
+        className={`w-full h-screen bg-transparent z-50`}
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
@@ -48,6 +48,7 @@ const BillBoard = () => {
             groundColor="#000000"
             intensity={1}
           />
+
           <House
             isRotating={isRotating}
             setIsRotating={setIsRotating}
