@@ -1,11 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { Home } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const HomeButton = () => {
+  const router = useRouter();
+
   const goToBackHomePage = () => {
-    window.location.replace(`/`);
-}
+    router.push(`/`);
+  };
 
   return (
     <motion.div

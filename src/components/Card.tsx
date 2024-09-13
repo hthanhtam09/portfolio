@@ -1,5 +1,6 @@
 import { fadeIn } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { Tilt } from "react-tilt";
 
 type CustomDivProps = {
@@ -27,9 +28,11 @@ const CustomDiv = ({ children, options, className }: CustomDivProps) => {
 };
 
 const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
+    const router = useRouter()
+    
     const redirectProfile = (profileName: string) => {
         if (isProfile) return
-        window.location.replace(`/profile/${profileName}`);
+        router.push(`/profile/${profileName}`)
     }
 
     return (

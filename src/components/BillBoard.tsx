@@ -1,13 +1,10 @@
 import React, { Suspense, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import Loader from "@/components/Loader";
 import Sky from "./Sky";
 import Typewriter from "./Typewriter";
-import dynamic from 'next/dynamic';
-
-const House = dynamic(() => import('@/components/Models').then((mod) => mod.House), { ssr: false });
-const Bird = dynamic(() => import('@/components/Models').then((mod) => mod.Bird), { ssr: false });
-const Cat = dynamic(() => import('@/components/Models').then((mod) => mod.Cat), { ssr: false });
+import SectionWrapper from "@/hoc/SectionWrapper";
+import { Canvas } from "@react-three/fiber";
+import Loader from "./Loader";
+import { Bird, Cat, House } from "./Models";
 
 const BillBoard = () => {
   const [currentStage, setCurrentStage] = useState<number | null>(1);
@@ -33,12 +30,12 @@ const BillBoard = () => {
 
   return (
     <section className="w-full h-full relative" id="billboard">
-      <Canvas
+     <Canvas
         className={`w-full h-screen bg-transparent z-50`}
         camera={{ near: 0.1, far: 1000 }}
       >
-        <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={2} />
+         <Suspense fallback={<Loader />}>
+         <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 5, 10]} intensity={2} />
           <spotLight
@@ -52,7 +49,6 @@ const BillBoard = () => {
             groundColor="#000000"
             intensity={1}
           />
-
           <House
             isRotating={isRotating}
             setIsRotating={setIsRotating}
@@ -64,7 +60,7 @@ const BillBoard = () => {
           />
           <Cat />
           <Bird />
-        </Suspense>
+         </Suspense>
       </Canvas>
       <div className="absolute top-1/4 z-50">
         <h1 className="text-white text-9xl font-mono pl-20 typewriterTitle">PORTFOLIO</h1>
@@ -75,4 +71,4 @@ const BillBoard = () => {
   );
 };
 
-export default BillBoard;
+export default SectionWrapper(BillBoard);
