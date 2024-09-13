@@ -13,7 +13,7 @@ const HomeButton = () => {
       animate={{ scale: 1 }}
       transition={{ delay: 1 }}
       className="text-foreground rounded-full flex items-center justify-center
-        custom-bg fixed top-4 left-4 w-fit self-start z-[9999]
+        custom-bg fixed top-4 left-4 w-fit self-start z-[9999] cursor-pointer
         "
       aria-label={"home"}
       onClick={goToBackHomePage}

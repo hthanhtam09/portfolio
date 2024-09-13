@@ -27,7 +27,6 @@ const CustomDiv = ({ children, options, className }: CustomDivProps) => {
 };
 
 const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
-    
     const redirectProfile = (profileName: string) => {
         if (isProfile) return
         window.location.replace(`/profile/${profileName}`);
@@ -53,7 +52,7 @@ const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
             alt="member"
             className="w-16 h-16 rounded-full"
           />
-          <span className="text-white text-[20px] font-bold text-center">{name.replace(/-/g, " ")}</span>
+          {!isProfile && <span className="text-white text-[20px] font-bold text-center">{name.replace(/-/g, " ")}</span>}
           <h3 className="text-white text-[16px] font-light text-center">
             {title}
           </h3>

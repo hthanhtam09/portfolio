@@ -10,7 +10,7 @@ import Card from "./Card";
 const Overview = () => {
   return (
     <>
-      <div className="px-52 pt-24 pb-20" id='overview'>
+      <div className="px-24 pt-24 pb-20" id='overview'>
         <motion.div variants={textVariant()} className="relative z-50">
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
             Introduction

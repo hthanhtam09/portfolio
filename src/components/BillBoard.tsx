@@ -1,8 +1,9 @@
-import React, {Suspense, useState} from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "@/components/Loader";
 import { Bird, House, Cat } from "@/components/Models";
 import Sky from "./Sky";
+import Typewriter from "./Typewriter";
 
 const BillBoard = () => {
   const [currentStage, setCurrentStage] = useState<number | null>(1);
@@ -11,8 +12,7 @@ const BillBoard = () => {
   const adjustHouseForScreenSize = () => {
     let screenScale, screenPosition;
 
-    if (typeof window !== 'undefined') {
-
+    if (typeof window !== "undefined") {
       if (window.innerWidth < 768) {
         screenScale = [0.9, 0.9, 0.9];
         screenPosition = [0, -6.5, -43.4];
@@ -21,14 +21,14 @@ const BillBoard = () => {
         screenPosition = [0, -6.5, -43.4];
       }
     }
-    
+
     return [screenScale, screenPosition];
   };
 
   const [houseScale, housePosition] = adjustHouseForScreenSize();
 
   return (
-    <section className="w-full h-full relative" id='billboard'>
+    <section className="w-full h-full relative" id="billboard">
       <Canvas
         className={`w-full h-screen bg-transparent z-50`}
         camera={{ near: 0.1, far: 1000 }}
@@ -62,6 +62,10 @@ const BillBoard = () => {
           <Bird />
         </Suspense>
       </Canvas>
+      <div className="absolute top-1/4 z-50">
+        <h1 className="text-white text-9xl font-mono pl-20 typewriterTitle">PORTFOLIO</h1>
+        <Typewriter />
+      </div>
       <Sky />
     </section>
   );

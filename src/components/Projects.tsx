@@ -85,7 +85,7 @@ const Projects = () => {
   }
   
   return (
-    <div className="px-52 py-20" id="projects">
+    <div className="px-24 py-20" id="projects">
       <div className="relative z-50">
         <motion.div variants={textVariant()}>
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
@@ -111,7 +111,7 @@ const Projects = () => {
 
         <div className="mt-10 flex flex-wrap gap-7 items-center">
           {projects.slice(0, 3).map((project, index) => (
-            <ProjectCard key={`project-${index}`} index={index} {...project} />
+            <ProjectCard key={`${project.name}-${index}`} index={index} {...project} />
           ))}
           <div className="flex flex-col border border-white rounded-lg p-2 shadow-gray-400 cursor-pointer hover:scale-105 ease-in duration-300" onClick={goToProjectsDetail}>
             <span className="text-white">View more</span>

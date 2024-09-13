@@ -144,3 +144,29 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@-webkit-keyframes blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#typewriter::after {
+  content: "|";
+  animation: blink 500ms linear infinite alternate;
+}
+
+.typewriterTitle {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  color: transparent;
+ 
+}

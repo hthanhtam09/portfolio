@@ -47,7 +47,7 @@ const ProfilePage: FC = () => {
 
         <motion.div
           variants={textVariant()}
-          className="relative z-50 px-52 pt-24 w-full"
+          className="relative z-50 px-24 pt-24 w-full"
         >
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
             Profile
@@ -74,7 +74,7 @@ const ProfilePage: FC = () => {
             />
           </motion.p>
         </motion.div>
-        <div className="px-52 mt-20 flex flex-wrap w-full justify-start gap-10">
+        <div className="px-24 mt-20 flex flex-wrap w-full justify-start gap-10">
           {profileData.skills.map((skill, index) => (
             <Card
               name={profileKey}

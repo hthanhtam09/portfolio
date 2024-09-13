@@ -15,7 +15,7 @@ const TechSkill = ({ profileKey }: TechSkillProps) => {
 
   return (
     <>
-      <div className="px-52 pt-24 pb-20 relative z-50">
+      <div className="px-24 pt-24 pb-20 relative z-50">
         <motion.div variants={textVariant()} className="">
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider text-center">
             The skills I am capable of doing
