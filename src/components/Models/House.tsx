@@ -299,3 +299,5 @@ export function House({
     </a.group>
   )
 }
+
+useGLTF.preload(house);

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Projects",
 };
 
-export default function ProfileLayout({
+export default function ProjectLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -1,9 +1,13 @@
 import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "@/components/Loader";
-import { Bird, House, Cat } from "@/components/Models";
 import Sky from "./Sky";
 import Typewriter from "./Typewriter";
+import dynamic from 'next/dynamic';
+
+const House = dynamic(() => import('@/components/Models').then((mod) => mod.House), { ssr: false });
+const Bird = dynamic(() => import('@/components/Models').then((mod) => mod.Bird), { ssr: false });
+const Cat = dynamic(() => import('@/components/Models').then((mod) => mod.Cat), { ssr: false });
 
 const BillBoard = () => {
   const [currentStage, setCurrentStage] = useState<number | null>(1);

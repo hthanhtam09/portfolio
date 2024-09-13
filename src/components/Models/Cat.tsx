@@ -25,13 +25,13 @@ export function Cat() {
   
       catRef.current.position.x = radius * Math.cos(time);
 
-      // if (catRef.current.position.x > rightBoundary) {
-      //   catRef.current.rotation.set(0, -Math.PI / 2, 0);
-      // } 
-      // else if (catRef.current.position.x < leftBoundary) {
-      //   catRef.current.rotation.set(0, Math.PI / 2, 0);
+      if (catRef.current.position.x > rightBoundary) {
+        catRef.current.rotation.set(0, -Math.PI / 2, 0);
+      } 
+      else if (catRef.current.position.x < leftBoundary) {
+        catRef.current.rotation.set(0, Math.PI / 2, 0);
 
-      // }
+      }
     }
   });
 
@@ -72,3 +72,5 @@ export function Cat() {
     </a.group>
   );
 }
+
+useGLTF.preload(cat);

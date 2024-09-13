@@ -78,3 +78,5 @@ export function Bird(props: JSX.IntrinsicElements["group"]) {
     </a.group>
   );
 }
+
+useGLTF.preload(bird);

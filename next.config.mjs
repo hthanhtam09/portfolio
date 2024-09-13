@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // This is to include assets like .glb files in the Next.js static assets
-    assetsInclude: ['**/*.glb'],
-  
     // Custom Webpack configuration
-    webpack: (config, { isServer }) => {
+    webpack: (config) => {
       // Add a rule to handle .glb files using file-loader
       config.module.rules.push({
         test: /\.(glb|gltf)$/,
