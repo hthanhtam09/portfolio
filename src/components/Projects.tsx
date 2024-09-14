@@ -29,14 +29,14 @@ const ProjectCard = ({
   source_code_link,
 }: ProjectCardProps) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 2)}>
       <Tilt
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
-        className="bg-white/10 backdrop-blur-sm p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-white/10 backdrop-blur-sm p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer"
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -113,9 +113,9 @@ const Projects = () => {
           {projects.slice(0, 3).map((project, index) => (
             <ProjectCard key={`${project.name}-${index}`} index={index} {...project} />
           ))}
-          <div className="flex flex-col border border-white rounded-lg p-2 shadow-gray-400 cursor-pointer hover:scale-105 ease-in duration-300" onClick={goToProjectsDetail}>
+          <motion.div variants={fadeIn("", "tween", 2, 1)} className="flex flex-col border border-white rounded-lg p-2 shadow-gray-400 cursor-pointer hover:scale-105 ease-in duration-300" onClick={goToProjectsDetail}>
             <span className="text-white">View more</span>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Sky isClouds={false} />

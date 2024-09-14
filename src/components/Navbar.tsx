@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 
 import { navLinks } from "@/constants";
-// import { logo, menu, close } from "../assets";
+import { SwitcherButton } from "@/components/SwicherButton";
+import { ThemeContext } from "@/app/page";
 
 const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,27 +30,25 @@ const Navbar = () => {
         scrolled ? "bg-white/5 blur-sm" : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link href='/#billboard' className='flex items-center gap-2'>
-            <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-              Portfolio
-            </p>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        <Link href="/#billboard" className="flex items-center gap-2">
+          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
+            Portfolio
+          </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav: any) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-white"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
             >
-              <Link href={`/#${nav.id}`}>
-                {nav.title}
-              </Link>
+              <Link href={`/#${nav.id}`}>{nav.title}</Link>
             </li>
           ))}
+          <li>
+            <SwitcherButton theme={theme} setTheme={setTheme} />
+          </li>
         </ul>
       </div>
     </nav>

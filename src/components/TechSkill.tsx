@@ -16,7 +16,7 @@ const TechSkill = ({ profileKey }: TechSkillProps) => {
   return (
     <>
       <div className="px-24 pt-24 pb-20 relative z-50">
-        <motion.div variants={textVariant()} className="">
+        <motion.div variants={textVariant()}>
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider text-center">
             The skills I am capable of doing
           </p>
@@ -25,14 +25,14 @@ const TechSkill = ({ profileKey }: TechSkillProps) => {
           </h2>
         </motion.div>
 
-        <div className="mt-20 flex flex-wrap w-full justify-center items-center gap-16">
+        <motion.div variants={textVariant()} className="mt-20 flex flex-wrap w-full justify-center items-center gap-16">
           {technicalSkillData.techs.map((tech, index) => (
             <div key={`${tech.name}_${index}`}>
               <img src={tech.icon} alt={tech.name} className="w-20 h-20" /> 
               <span className="block text-white text-center pt-4">{tech.name}</span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
       <Sky isClouds={false} />
     </>

@@ -36,10 +36,10 @@ const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
     }
 
     return (
-    <Tilt className="xs:w-[250px] w-full z-50 bg-white/5 backdrop-blur-[2px]">
+    <Tilt className="xs:w-[250px] w-full z-50 bg-white/5 backdrop-blur-[2px] cursor-pointer">
       <motion.div
-        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-        className="w-full p-[1px] rounded-[20px] shadow-card"
+        variants={fadeIn("right", "spring", index * 0.5, 2)}
+        className="w-full p-[1px] rounded-[20px]"
         onClick={() => redirectProfile(name)}
       >
         <CustomDiv

@@ -46,7 +46,7 @@ const ProfilePage: FC = () => {
         )}
 
         <motion.div
-          variants={textVariant()}
+          variants={textVariant(1)}
           className="relative z-50 px-24 pt-24 w-full"
         >
           <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">

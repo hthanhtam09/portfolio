@@ -15,7 +15,7 @@ const Typewriter: React.FC = () => {
   return (
     <pre className="text-2xl font-mono m-0 whitespace-pre-wrap text-white">
       {`
-        { 
+        var myWebsite = { 
           name: 'Portfolio', 
           type: 'website', 
           location: 'Da Nang', 

@@ -42,12 +42,17 @@ const config: Config = {
           "0%": { backgroundPosition: "0 0" },
           "100%": { backgroundPosition: "10000px 0" },
         },
+        radiate: {
+          '0%': { boxShadow: '0 0 0 0 rgba(32, 105, 149, 0.6)' },
+          '100%': { boxShadow: '0 0 0 1.25em rgba(32, 105, 149, 0)' },
+        },
       },
       animation: {
         "spin-slow": "spin 40s linear infinite",
         "spin-slow-reverse": "spin-reverse 40s linear infinite",
         twinkling: "twinkling 200s linear infinite",
         clouds: "clouds 200s linear infinite",
+        radiate: 'radiate 2s infinite',
       },
       screens: {
         xs: "480px",

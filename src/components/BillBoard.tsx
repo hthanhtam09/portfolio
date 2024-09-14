@@ -1,12 +1,17 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useContext, useState } from "react";
 import Sky from "./Sky";
 import Typewriter from "./Typewriter";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { Canvas } from "@react-three/fiber";
 import Loader from "./Loader";
 import { Bird, Cat, House } from "./Models";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/motion";
+import MoonSun from "./MoonSun";
+import { ThemeContext } from "@/app/page";
 
 const BillBoard = () => {
+  const { theme } = useContext(ThemeContext);
   const [currentStage, setCurrentStage] = useState<number | null>(1);
   const [isRotating, setIsRotating] = useState(false);
 
@@ -30,12 +35,12 @@ const BillBoard = () => {
 
   return (
     <section className="w-full h-full relative" id="billboard">
-     <Canvas
+      <Canvas
         className={`w-full h-screen bg-transparent z-50`}
         camera={{ near: 0.1, far: 1000 }}
       >
-         <Suspense fallback={<Loader />}>
-         <directionalLight position={[1, 1, 1]} intensity={2} />
+        <Suspense fallback={<Loader />}>
+          <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 5, 10]} intensity={2} />
           <spotLight
@@ -60,13 +65,20 @@ const BillBoard = () => {
           />
           <Cat />
           <Bird />
-         </Suspense>
+        </Suspense>
       </Canvas>
-      <div className="absolute top-1/4 z-50">
-        <h1 className="text-white text-9xl font-mono pl-20 typewriterTitle">PORTFOLIO</h1>
+
+      <motion.div
+        className="absolute top-1/4 z-50"
+        variants={fadeIn("right", "spring", 0.5, 2)}
+      >
+        <h1 className="text-white text-9xl font-mono pl-20 typewriterTitle">
+          PORTFOLIO
+        </h1>
         <Typewriter />
-      </div>
-      <Sky />
+      </motion.div>
+      <Sky isClouds />
+      <MoonSun theme={theme} />
     </section>
   );
 };
