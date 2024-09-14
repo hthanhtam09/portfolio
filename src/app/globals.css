@@ -170,3 +170,20 @@ section {
   color: transparent;
  
 }
+
+/* Clouds */
+@keyframes move1 {
+  to { background-position: -1000px 0; }
+}
+
+@keyframes move2 {
+  to { background-position: -1579px 0; }
+}
+
+.animate-move1 {
+  animation: move1 15s infinite linear;
+}
+
+.animate-move2 {
+  animation: move2 17s infinite linear;
+}

@@ -24,6 +24,8 @@ const config: Config = {
         stars: "url('../assets/images/stars.png')",
         twinkling: "url('../assets/images/twinkling.png')",
         clouds: "url('../assets/images/clouds.png')",
+        clouds2: "url('../assets/images/clouds_2.png')",
+        clouds3: "url('../assets/images/clouds_3.png')",
       },
       boxShadow: {
         "glass-inset": "inset 0 17px 5px -9px rgba(254,254,91, 0.05)",

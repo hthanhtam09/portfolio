@@ -21,9 +21,16 @@ const Sky = ({ isClouds = true }: SkyProps) => {
         </>
       ) : (
         <>
-          <div className="sky absolute inset-0 bg-blue-300 z-0"></div>
+          <div className="absolute inset-0 bg-[#03a9f445] backdrop-blur-sm backdrop-brightness-75 z-0"></div>
           {isClouds && (
-            <div className="clouds bottom-1/4 absolute inset-0 bg-transparent bg-clouds z-20 animate-clouds"></div>
+            <div className="absolute inset-0 h-[445px]">
+              <div className="absolute inset-0 bg-gradient-to-b from-white to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-[#03a9f445]"></div>
+              <div className="absolute inset-0 flex items-center">
+                <div className="absolute inset-0 bg-clouds2 animate-move1"></div>
+                <div className="absolute inset-0 bg-clouds3 animate-move2"></div>
+              </div>
+            </div>
           )}
         </>
       )}
