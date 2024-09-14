@@ -8,7 +8,7 @@ import { Bird, Cat, House } from "./Models";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 import MoonSun from "./MoonSun";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const BillBoard = () => {
   const { theme } = useContext(ThemeContext);

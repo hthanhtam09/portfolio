@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { navLinks } from "@/constants";
 import { SwitcherButton } from "@/components/SwicherButton";
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);

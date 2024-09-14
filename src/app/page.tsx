@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
+import { ThemeMode } from "@/enums";
 import {
   BillBoard,
   Contact,
@@ -8,18 +11,6 @@ import {
   Overview,
   Projects,
 } from "@/components";
-import { ThemeMode } from "@/enums";
-import { useState, createContext, Dispatch, SetStateAction } from "react";
-
-interface ThemeContextType {
-  theme: ThemeMode;
-  setTheme: Dispatch<SetStateAction<ThemeMode>>;
-}
-
-export const ThemeContext = createContext<ThemeContextType>({
-  theme: ThemeMode.DARK,
-  setTheme: () => {},
-});
 
 export default function Home() {
   const [theme, setTheme] = useState<ThemeMode>(ThemeMode.DARK);

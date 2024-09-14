@@ -1,4 +1,4 @@
-import { ThemeContext } from "@/app/page";
+import { ThemeContext } from "@/context/ThemeContext";
 import { ThemeMode } from "@/enums";
 import React, { useContext } from "react";
 
