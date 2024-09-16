@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { ThemeContext } from "@/context/ThemeContext";
+import { useState, useEffect } from "react";
 import { ThemeMode } from "@/enums";
 import {
   BillBoard,
@@ -11,20 +10,45 @@ import {
   Overview,
   Projects,
 } from "@/components";
+import SplashScreen from "@/components/SplashScreen";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+import { Providers } from "./provider";
 
 export default function Home() {
-  const [theme, setTheme] = useState<ThemeMode>(ThemeMode.DARK);
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
+  const [fadeOutSplash, setFadeOutSplash] = useState(false);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => {
+      setFadeOutSplash(true);
+    }, 3000);
+
+    const hideTimer = setTimeout(() => {
+      setShowSplashScreen(false);
+    }, 4000);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className="main">
-        <Navbar/>
-        <BillBoard />
-        <Overview />
-        <Projects />
-        <Feedback />
-        <Contact />
-      </div>
-    </ThemeContext.Provider>
+      <Providers>
+        {showSplashScreen ? (
+          <div className={fadeOutSplash ? "fade-out-hidden" : "fade-out"}>
+            <SplashScreen />
+          </div>
+        ) : (
+          <div className="main fade-in fade-in-visible">
+            <Navbar />
+            <BillBoard />
+            <Overview />
+            <Projects />
+            <Feedback />
+            <Contact />
+          </div>
+        )}
+      </Providers>
   );
 }

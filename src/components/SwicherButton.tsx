@@ -1,20 +1,20 @@
-"use client";
-
 import React from "react";
 import { cn } from "@/utils/cn";
 import { ThemeMode } from "@/enums";
+import { useTheme } from "next-themes";
 
-type SwitcherButtonProps = {
-  theme: ThemeMode;
-  setTheme: React.Dispatch<React.SetStateAction<ThemeMode>>;
-};
+export const SwitcherButton = () => {
+  const { theme, setTheme } = useTheme();
 
-export const SwitcherButton = ({ theme, setTheme }: SwitcherButtonProps) => {
+  const toggleTheme = () => {
+    setTheme(theme === ThemeMode.DARK ? ThemeMode.LIGHT : ThemeMode.DARK);
+  };
+
   return (
     <button
       type="button"
-      onClick={() => setTheme((prev) => (prev === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT))}
-      className="overflow-hidden group px-2 py-1 dark:bg-neutral-800 bg-white hover:bg-neutral-100 border border-neutral-500/10 dark:hover:bg-neutral-700 inline-flex items-center gap-2 rounded-md text-neutral-600 dark:text-neutral-300 tracking-tight font-medium relative"
+      onClick={toggleTheme}
+      className="overflow-hidden group px-2 py-1 dark:bg-neutral-800 bg-white hover:bg-neutral-100 border border-neutral-500/10 dark:hover:bg-neutral-700 inline-flex items-center gap-2 rounded-md text-neutral-600 dark:text-neutral-300 tracking-tight font-medium relative cursor-pointer"
     >
       <span
         className={cn(

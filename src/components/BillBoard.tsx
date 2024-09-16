@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useState } from "react";
+import React, { Suspense, useState } from "react";
 import Sky from "./Sky";
 import Typewriter from "./Typewriter";
 import SectionWrapper from "@/hoc/SectionWrapper";
@@ -8,10 +8,8 @@ import { Bird, Cat, House } from "./Models";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 import MoonSun from "./MoonSun";
-import { ThemeContext } from "@/context/ThemeContext";
 
 const BillBoard = () => {
-  const { theme } = useContext(ThemeContext);
   const [currentStage, setCurrentStage] = useState<number | null>(1);
   const [isRotating, setIsRotating] = useState(false);
 
@@ -78,7 +76,7 @@ const BillBoard = () => {
         <Typewriter />
       </motion.div>
       <Sky isClouds />
-      <MoonSun theme={theme} />
+      <MoonSun />
     </section>
   );
 };

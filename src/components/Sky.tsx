@@ -1,13 +1,13 @@
-import { ThemeContext } from "@/context/ThemeContext";
 import { ThemeMode } from "@/enums";
-import React, { useContext } from "react";
+import { useTheme } from "next-themes";
+import React from "react";
 
 type SkyProps = {
   isClouds?: boolean;
 };
 
 const Sky = ({ isClouds = true }: SkyProps) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme()
 
   return (
     <div className="w-full h-full overflow-hidden z-0">

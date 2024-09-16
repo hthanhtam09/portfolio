@@ -1,12 +1,12 @@
 import { ThemeMode } from "@/enums";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
-type MoonSunProps = {
-  theme: ThemeMode;
-};
 
-const MoonSun = ({ theme }: MoonSunProps) => {
+const MoonSun = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="absolute top-1/4 right-40 z-20">
       <AnimatePresence mode="wait">

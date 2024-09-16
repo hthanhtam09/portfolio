@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { navLinks } from "@/constants";
 import { SwitcherButton } from "@/components/SwicherButton";
-import { ThemeContext } from "@/context/ThemeContext";
+import { fadeIn, textVariant } from "@/utils/motion";
 
 const Navbar = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,27 +30,28 @@ const Navbar = () => {
         scrolled ? "bg-white/5 blur-sm" : "bg-transparent"
       }`}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      <motion.div initial="hidden" animate="show" className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/#billboard" className="flex items-center gap-2">
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
+          <motion.p variants={textVariant()} className="text-[18px] font-bold cursor-pointer flex dark:text-white text-dark">
             Portfolio
-          </p>
+          </motion.p>
         </Link>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((nav: any) => (
-            <li
+        <motion.ul className="list-none hidden sm:flex flex-row gap-10">
+          {navLinks.map((nav, index) => (
+            <motion.li
+              variants={fadeIn("down", "spring", index * 0.5, 2)}
               key={nav.id}
-              className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
+              className={`text-white hover:text-white text-[18px] font-medium cursor-pointer dark:text-white text-dark`}
             >
               <Link href={`/#${nav.id}`}>{nav.title}</Link>
-            </li>
+            </motion.li>
           ))}
           <li>
-            <SwitcherButton theme={theme} setTheme={setTheme} />
+            <SwitcherButton />
           </li>
-        </ul>
-      </div>
+        </motion.ul>
+      </motion.div>
     </nav>
   );
 };

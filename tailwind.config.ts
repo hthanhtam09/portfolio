@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,6 +18,7 @@ const config: Config = {
         muted: "rgb(var(--muted))",
         accent: "rgb(var(--accent))",
         tertiary: "#151030",
+        dark: "#03a9f445"
       },
       backgroundImage: {
         "firefly-radial":
