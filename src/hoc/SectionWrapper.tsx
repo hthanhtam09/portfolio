@@ -11,7 +11,7 @@ const SectionWrapper = <P extends object>(Component: React.ComponentType<P>) =>
         viewport={{ once: true, amount: 0.25 }}
         className={`w-full h-full relative`}
       >
-       <Component {...props} />
+        <Component {...props} />
       </motion.section>
     );
   };

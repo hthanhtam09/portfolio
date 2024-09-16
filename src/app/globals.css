@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @layer base {
   :root {
     --background: 27 27 27;
@@ -24,7 +26,7 @@
 
 body {
   background-color: #191919;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 html {
@@ -150,30 +152,9 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
-@-webkit-keyframes blink {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-moz-keyframes blink {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes blink {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-#typewriter::after {
-  content: "|";
-  animation: blink 500ms linear infinite alternate;
-}
-
 .typewriterTitle {
   -webkit-text-stroke: 1px rgb(255, 255, 255);
   color: transparent;
- 
 }
 
 /* Clouds */

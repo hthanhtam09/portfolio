@@ -1,19 +1,15 @@
 "use client";
 
-import Sky from "@/components/Sky";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { profileTamDetail, profileThoDetail } from "@/assets";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/utils/motion";
-import HomeButton from "@/components/HomeButton";
-import Card from "@/components/Card";
 import { ProfileName } from "@/enums";
 import { profileDetail } from "@/constants";
 import { QuoteIcon } from "lucide-react";
-import Experience from "@/components/Experience";
-import TechSkill from "@/components/TechSkill";
+import { Experience, TechSkill, Sky, HomeButton, Card } from "@/components";
 
 const ProfilePage: FC = () => {
   const pathName = usePathname();

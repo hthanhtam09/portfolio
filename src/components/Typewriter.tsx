@@ -1,28 +1,24 @@
 import React from "react";
-import { useTypewriter } from "react-simple-typewriter";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { Montserrat } from 'next/font/google'
+import { cn } from "@/utils/cn";
 
+const montserrat = Montserrat({ subsets: ['latin'] })
+ 
 const Typewriter: React.FC = () => {
   const [text] = useTypewriter({
-    words: [
-      `members: ['Tam Ho Thanh', 'Tho Le Duc']`,
-      `technologies: ['ReactJs', 'React Native', 'Unity']`,
-    ],
+    words: ["web development!", "mobile development!", "game development!"],
     loop: true,
-    typeSpeed: 50,
-    deleteSpeed: 20,
+    typeSpeed: 100,
+    deleteSpeed: 50,
   });
 
   return (
-    <pre className="text-2xl font-mono m-0 whitespace-pre-wrap text-white">
-      {`
-        var myWebsite = { 
-          name: 'Portfolio', 
-          type: 'website', 
-          location: 'Da Nang', 
-          ${text}
-        };
-      `}
-    </pre>
+    <h1 className={cn('text-white text-9xl pl-20 typewriterTitle z-[9999]', montserrat.className)}>
+      Together, we can turn your vision into reality—be it <br />
+      <span className="text-white">{text}</span>
+      <Cursor />
+    </h1>
   );
 };
 

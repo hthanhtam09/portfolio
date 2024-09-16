@@ -14,7 +14,7 @@ export const SwitcherButton = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="overflow-hidden group px-2 py-1 dark:bg-neutral-800 bg-white hover:bg-neutral-100 border border-neutral-500/10 dark:hover:bg-neutral-700 inline-flex items-center gap-2 rounded-md text-neutral-600 dark:text-neutral-300 tracking-tight font-medium relative cursor-pointer"
+      className="text-dark dark:text-white  overflow-hidden group px-2 py-1 inline-flex items-center gap-2 rounded-md tracking-tight font-medium relative cursor-pointer"
     >
       <span
         className={cn(
@@ -39,28 +39,6 @@ export const SwitcherButton = () => {
             theme === ThemeMode.DARK ? "scale-100" : "scale-0"
           )}
         />
-      </span>
-      <span className="relative w-12 h-6">
-        <span
-          className={cn(
-            "absolute top-0 left-0 transition-all duration-1000",
-            theme === ThemeMode.LIGHT
-              ? "-translate-y-4 blur-lg opacity-0"
-              : "translate-y-0 opacity-100 blur-0"
-          )}
-        >
-          Dark
-        </span>
-        <span
-          className={cn(
-            "absolute top-0 left-0 transition-all duration-1000",
-            theme === ThemeMode.DARK
-              ? "translate-y-4 blur-lg opacity-0"
-              : "translate-y-0 opacity-100 blur-0"
-          )}
-        >
-          Light
-        </span>
       </span>
     </button>
   );

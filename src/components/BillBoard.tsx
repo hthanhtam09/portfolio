@@ -67,12 +67,9 @@ const BillBoard = () => {
       </Canvas>
 
       <motion.div
-        className="absolute top-1/4 z-50"
+        className="absolute top-1/3 z-50"
         variants={fadeIn("right", "spring", 0.5, 2)}
       >
-        <h1 className="text-white text-9xl font-mono pl-20 typewriterTitle">
-          PORTFOLIO
-        </h1>
         <Typewriter />
       </motion.div>
       <Sky isClouds />
