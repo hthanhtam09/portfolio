@@ -6,7 +6,6 @@ import { githubIcon } from "@/assets";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { projects } from "@/constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import Sky from "./Sky";
 
 type ProjectCardProps = {
   index: number;
@@ -85,15 +84,15 @@ const Projects = () => {
   }
   
   return (
-    <div className="px-24 py-20" id="projects">
+    <div className="px-24 py-20 h-screen" id="projects">
       <div className="relative z-50">
         <motion.div variants={textVariant()}>
-          <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
+          <motion.p variants={textVariant(0.5)} className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
             Team work
-          </p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          </motion.p>
+          <motion.h2 variants={textVariant(1)} className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
             Projects.
-          </h2>
+          </motion.h2>
         </motion.div>
 
         <div className="w-full">
@@ -118,7 +117,6 @@ const Projects = () => {
           </motion.div>
         </div>
       </div>
-      <Sky isClouds={false} />
     </div>
   );
 };

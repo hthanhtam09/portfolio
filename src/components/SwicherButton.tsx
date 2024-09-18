@@ -14,7 +14,7 @@ export const SwitcherButton = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className="text-dark dark:text-white  overflow-hidden group px-2 py-1 inline-flex items-center gap-2 rounded-md tracking-tight font-medium relative cursor-pointer"
+      className="text-dark dark:text-white overflow-hidden group px-2 py-1 inline-flex items-center gap-2 rounded-md tracking-tight font-medium relative cursor-pointer"
     >
       <span
         className={cn(

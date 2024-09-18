@@ -74,7 +74,7 @@ const Experience: FC<ExperienceProps> = ({ profileKey }) => {
         </h2>
       </motion.div>
 
-      <motion.div variants={textVariant(1.5)} className="mt-10 flex flex-col">
+      <motion.div variants={textVariant(0.5)} className="mt-10 flex flex-col">
         <VerticalTimeline>
           {experiencesData.experiences.map((experience, index) => (
             <ExperienceCard

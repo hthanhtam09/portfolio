@@ -24,6 +24,11 @@ import mongodbIcon from '@/assets/icons/mongodb-icon.svg';
 import linkedinIcon from '@/assets/icons/linkedin-icon.svg';
 import javascriptIcon from '@/assets/icons/javascript-icon.svg';
 import expressIcon from '@/assets/icons/express-icon.svg';
+import nodejsIcon from '@/assets/icons/nodejs-icon.svg';
+import postgresqlIcon from '@/assets/icons/postgresql-icon.svg';
+import mysqlIcon from '@/assets/icons/mysql-icon.svg';
+import reactNativeIcon from '@/assets/icons/reactNative-icon.svg';
+import graphqlIcon from '@/assets/icons/graphql-icon.svg';
 
 export {
     stars,
@@ -51,5 +56,10 @@ export {
     mongodbIcon,
     linkedinIcon,
     javascriptIcon,
-    expressIcon
+    expressIcon,
+    nodejsIcon,
+    postgresqlIcon,
+    mysqlIcon,
+    reactNativeIcon,
+    graphqlIcon
 }

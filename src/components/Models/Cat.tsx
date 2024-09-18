@@ -38,7 +38,6 @@ export function Cat() {
   useEffect(() => {
     if (catRef.current) {
       catRef.current.scale.set(0.005, 0.005, 0.005);
-      // catRef.current.position.set(10, -5, 2);
       catRef.current.position.set(11, -5, 2);
       catRef.current.rotation.set(0, Math.PI / 2, 0);
     }

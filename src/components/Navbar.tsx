@@ -17,7 +17,7 @@ const Navbar = () => {
           </motion.h1>
         </Link>
 
-        <motion.ul className="list-none hidden sm:flex flex-row gap-10">
+        <motion.ul className="list-none hidden sm:flex flex-row items-center gap-10">
           {navLinks.map((nav, index) => (
             <motion.li
               variants={fadeIn("down", "spring", index * 0.5, 2)}

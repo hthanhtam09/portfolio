@@ -1,5 +1,4 @@
 import React, { Suspense, useState } from "react";
-import Sky from "./Sky";
 import Typewriter from "./Typewriter";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { Canvas } from "@react-three/fiber";
@@ -32,7 +31,7 @@ const BillBoard = () => {
   const [houseScale, housePosition] = adjustHouseForScreenSize();
 
   return (
-    <section className="w-full h-full relative" id="billboard">
+    <section className="w-full h-screen relative" id="billboard">
       <Canvas
         className={`w-full h-screen bg-transparent z-50`}
         camera={{ near: 0.1, far: 1000 }}
@@ -72,7 +71,6 @@ const BillBoard = () => {
       >
         <Typewriter />
       </motion.div>
-      <Sky isClouds />
       <MoonSun />
     </section>
   );

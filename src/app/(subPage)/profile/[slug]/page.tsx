@@ -9,7 +9,7 @@ import { fadeIn, textVariant } from "@/utils/motion";
 import { ProfileName } from "@/enums";
 import { profileDetail } from "@/constants";
 import { QuoteIcon } from "lucide-react";
-import { Experience, TechSkill, Sky, HomeButton, Card } from "@/components";
+import { Experience, TechSkill, HomeButton, Card } from "@/components";
 
 const ProfilePage: FC = () => {
   const pathName = usePathname();
@@ -32,13 +32,13 @@ const ProfilePage: FC = () => {
       >
         <HomeButton />
         {profileImage && (
-          <div className="absolute top-[-10%] right-[-25%] z-50 w-full h-full">
+          <motion.div variants={textVariant(1)} className="absolute top-[-10%] right-[-25%] z-50 w-full h-full">
             <img
               src={profileImage.src}
               alt={`Profile ${pathProfileName}`}
               className="w-[100%] h-[100%] object-contain"
             />
-          </div>
+          </motion.div>
         )}
 
         <motion.div
@@ -84,7 +84,6 @@ const ProfilePage: FC = () => {
       </motion.div>
       <Experience profileKey={profileKey} />
       <TechSkill profileKey={profileKey} />
-      <Sky isClouds={false} />
     </div>
   );
 };

@@ -29,6 +29,14 @@ body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
+.main::-webkit-scrollbar {
+  display: none
+}
+
+.main::-webkit-scrollbar-track {
+  display: none
+}
+
 html {
   --line-color: #fff;
   background-color: #000;
