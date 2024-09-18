@@ -59,12 +59,18 @@ const ContactForm = () => {
       )
       .then(
         (result) => {
-          console.log(result);
+          console.log('result', result);
+          setFormData({
+            email: "",
+            username: "",
+            message: "",
+          })
         },
         (error) => {
           console.log(error);
         }
       );
+    
   };
   return (
     <motion.form
