@@ -1,9 +1,10 @@
 import SectionWrapper from "@/hoc/SectionWrapper";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { textVariant } from "@/utils/motion";
 import { githubIcon, linkedinIcon } from "@/assets";
 import Link from "next/link";
+import emailjs from "@emailjs/browser";
 
 const IconImage = [
   {
@@ -19,6 +20,7 @@ const IconImage = [
 ];
 
 const ContactForm = () => {
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -37,14 +39,39 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData); // Log the entire form data
+    if (!formRef.current) {
+      console.error("Form reference is null");
+      return;
+    }
+
+    emailjs
+      .send(
+        process.env.serviceIdEmail ?? "",
+        process.env.templateIdEmail ?? "",
+        {
+          from_name: formData.email,
+          to_name: formData.username,
+          message: formData.message,
+        },
+        {
+          publicKey: process.env.publicKeyEmail ?? "",
+        }
+      )
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   };
   return (
     <motion.form
       variants={textVariant()}
       onSubmit={handleSubmit}
       className="w-1/2 border rounded-3xl p-20"
+      ref={formRef}
     >
       <div className="mb-5">
         <label
@@ -142,12 +169,21 @@ const ContactForm = () => {
 
 const Contact = () => {
   return (
-    <div className="relative z-50 h-screen flex flex-col justify-center items-center" id='contact'>
+    <div
+      className="relative z-50 h-screen flex flex-col justify-center items-center"
+      id="contact"
+    >
       <motion.div variants={textVariant()}>
-        <motion.p variants={textVariant(0.5)} className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider text-center">
-          - Say hi 👋
+        <motion.p
+          variants={textVariant(0.5)}
+          className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider text-center"
+        >
+          - Say hi 👋 -
         </motion.p>
-        <motion.h2 variants={textVariant(1)} className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center">
+        <motion.h2
+          variants={textVariant(1)}
+          className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center"
+        >
           Contact our team
         </motion.h2>
       </motion.div>
