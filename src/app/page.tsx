@@ -56,7 +56,7 @@ export default function Home() {
           <Overview />
           <Projects />
           <Contact />
-          <Sky isClouds/>
+          <Sky />
         </div>
       )}
     </>
