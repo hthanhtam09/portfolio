@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Tilt } from "react-tilt";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { githubIcon } from "@/assets";
+import { githubIcon, rightArrowIcon, leftArrowIcon } from "@/assets";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { projects } from "@/constants";
-import { fadeIn, textVariant } from "../utils/motion";
-import { rightArrowIcon, leftArrowIcon } from "@/assets";
+import { textVariant } from "../utils/motion";
+import { useRouter } from "next/navigation";
 
 type ProjectCardProps = {
   index: number;
@@ -28,13 +28,20 @@ const ProjectCard = ({
   image,
   source_code_link,
 }: ProjectCardProps) => {
+  const router = useRouter();
+
+  const goToProjectsDetail = (projectName: string) => {
+    router.push(`/projects/${projectName.replace(" ", "-")}`);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 0, scale: 0.8 }}
       animate={{ opacity: 1, x: 0, scale: 1 }}
       exit={{ opacity: 0, x: 0, scale: 0.8 }}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
+      transition={{ delay: 0.2 * index, duration: 1, ease: "easeInOut" }}
       layout
+      onClick={() => goToProjectsDetail(name)}
     >
       <Tilt
         options={{
@@ -86,7 +93,6 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const goToProjectsDetail = () => {};
   const [currentSlide, setCurrentSlide] = useState(0);
 
   function handleNextSlide() {
@@ -118,7 +124,7 @@ const Projects = () => {
           </motion.h2>
         </motion.div>
 
-        <div className="flex mt-14 *:shrink-0 gap-2 w-full">
+        <div className="flex mt-14 *:shrink-0 gap-12 w-full">
           {projects.map((project, index) => (
             <AnimatePresence mode="popLayout" key={`${project.name}-${index}`}>
               {index >= currentSlide && (

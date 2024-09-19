@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 
 @layer base {
   :root {
@@ -26,15 +27,15 @@
 
 body {
   background-color: #191919;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .main::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
 .main::-webkit-scrollbar-track {
-  display: none
+  display: none;
 }
 
 html {
@@ -63,7 +64,6 @@ section {
     transform: translate(100px, 100px);
   }
 }
-
 
 .black-gradient {
   background: #000000; /* fallback for old browsers */
@@ -167,11 +167,15 @@ section {
 
 /* Clouds */
 @keyframes move1 {
-  to { background-position: -1000px 0; }
+  to {
+    background-position: -1000px 0;
+  }
 }
 
 @keyframes move2 {
-  to { background-position: -1579px 0; }
+  to {
+    background-position: -1579px 0;
+  }
 }
 
 .animate-move1 {
@@ -204,10 +208,10 @@ section {
   font-weight: 600;
   color: #ffffff;
   opacity: 1;
-  animation: logo .3s ease-in 1.5s forwards, off .6s ease-in-out 3.2s forwards;
+  animation: logo 0.3s ease-in 1.5s forwards, off 0.6s ease-in-out 3.2s forwards;
 }
 
-.splash_logo:before, 
+.splash_logo:before,
 .splash_logo:after {
   display: block;
   position: absolute;
@@ -244,7 +248,7 @@ section {
   fill: #03a9f445;
   stroke: 0;
   clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
-  animation: expand .7s ease-in forwards 2.7s;
+  animation: expand 0.7s ease-in forwards 2.7s;
 }
 
 .splash_minimize {
@@ -261,7 +265,7 @@ section {
   width: 100%;
   height: 100%;
   clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
-  animation: scale .2s ease-out forwards 1s, hide 1.3s ease-out forwards 1.2s;
+  animation: scale 0.2s ease-out forwards 1s, hide 1.3s ease-out forwards 1.2s;
 }
 
 @keyframes scale {
@@ -313,7 +317,8 @@ section {
 }
 
 @keyframes expand {
-  0% {}
+  0% {
+  }
   25% {
     clip-path: polygon(0vw 0vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
     fill: white;
@@ -331,7 +336,6 @@ section {
     fill: #03a9f445;
   }
 }
-
 
 /* Fade out animation for the SplashScreen */
 .fade-out {
@@ -353,4 +357,30 @@ section {
 .fade-in-visible {
   opacity: 1;
   transition: opacity 2s ease-in;
+}
+
+.project-list-image {
+  opacity: 0.5;
+  transition: 0.6s ease all;
+  border-radius: 2rem;
+}
+
+.project-list-image.left {
+  transform: perspective(800px) rotateY(25deg) scale(0.9) rotateX(10deg);
+
+  &:hover {
+    transform: perspective(800px) rotateY(0) translateY(0) rotateX(0) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.project-list-image.right {
+  transform: perspective(800px) rotateY(-25deg) scale(0.9) rotateX(10deg);
+
+  &:hover {
+    transform: perspective(800px) rotateY(0) translateY(0) rotateX(0) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
 }

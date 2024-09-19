@@ -21,7 +21,7 @@ import {
   reduxIcon,
   sassIcon,
 } from "@/assets";
-import { ProfileName } from "@/enums";
+import { ProfileName, ProjectName } from "@/enums";
 
 export const navLinks = [
   {
@@ -269,7 +269,8 @@ export const experiences = {
         ],
       },
       {
-        title: "ReactJs/Typescript/Material UI/GraphQL/ Timestream/DynamoDB/Lambda/S3/ Cloudwatch/IAM/SQS/SES",
+        title:
+          "ReactJs/Typescript/Material UI/GraphQL/ Timestream/DynamoDB/Lambda/S3/ Cloudwatch/IAM/SQS/SES",
         company_name: "KOZOCOM VIETNAM CO.,LTD",
         icon: webIcon.src,
         iconBg: "#E6DEDD",
@@ -322,7 +323,8 @@ export const experiences = {
         ],
       },
       {
-        title: "NextJS/Angular/ReactNative/NodeJS/ PostgreSQL/Ex-po/Aws/Redux/ReactQuery/Zustand",
+        title:
+          "NextJS/Angular/ReactNative/NodeJS/ PostgreSQL/Ex-po/Aws/Redux/ReactQuery/Zustand",
         company_name: "FULL STACK DEVELOPER – VITABLE",
         icon: webIcon.src,
         iconBg: "#E6DEDD",
@@ -465,6 +467,70 @@ export const technicalSkill = {
       {
         name: "SASS",
         icon: sassIcon.src,
+      },
+    ],
+  },
+};
+
+export const projectDetail = {
+  [ProjectName.CARRENT]: {
+    description:
+      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    technical: ["ReactJs", "Nodejs", "MUI"],
+    background: project1.src,
+    images: [
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+    ],
+  },
+  [ProjectName.JOBIT]: {
+    description:
+      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    technical: ["ReactJs", "Nodejs", "MUI"],
+    background: project1.src,
+    images: [
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+    ],
+  },
+  [ProjectName.TRIPGUIDE]: {
+    description:
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+
+    technical: ["ReactJs", "Nodejs", "MUI"],
+    background: project1.src,
+    images: [
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
+      },
+      {
+        src: project1.src,
+        alt: "project1",
       },
     ],
   },

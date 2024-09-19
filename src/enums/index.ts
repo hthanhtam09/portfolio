@@ -7,3 +7,9 @@ export enum ThemeMode {
     LIGHT = 'light',
     DARK = 'dark'
 }
+
+export enum ProjectName {
+    CARRENT = 'Car Rent',
+    JOBIT = 'Job IT',
+    TRIPGUIDE = 'Trip Guide',
+}

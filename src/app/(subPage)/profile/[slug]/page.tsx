@@ -5,16 +5,16 @@ import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { profileTamDetail, profileThoDetail } from "@/assets";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "@/utils/motion";
 import { ProfileName } from "@/enums";
 import { profileDetail } from "@/constants";
 import { QuoteIcon } from "lucide-react";
 import { Experience, TechSkill, HomeButton, Card, Sky } from "@/components";
+import { convertPathName } from "@/common";
 
 const ProfilePage: FC = () => {
   const pathName = usePathname();
   const profileKey = pathName.split("/").pop() ?? "";
-  const pathProfileName = profileKey.replace(/-/g, " ");
+  const pathProfileName = convertPathName(profileKey);
   const profileImage =
     profileKey === ProfileName.TAM
       ? profileTamDetail
