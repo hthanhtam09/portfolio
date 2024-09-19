@@ -12,7 +12,7 @@ const Navbar = () => {
     >
       <motion.div initial="hidden" animate="show" className="w-full flex justify-between items-center">
         <Link href="/#billboard" className="flex items-center gap-2">
-          <motion.h1 variants={textVariant()} className="text-3xl font-bold cursor-pointer flex dark:text-white text-dark">
+          <motion.h1 variants={textVariant()} className="text-3xl font-bold cursor-pointer flex dark:text-dark text-light">
             Portfolio
           </motion.h1>
         </Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
             <motion.li
               variants={fadeIn("down", "spring", index * 0.5, 2)}
               key={nav.id}
-              className={`hover:opacity-70 text-[18px] font-medium cursor-pointer dark:text-white text-dark`}
+              className={`hover:opacity-70 text-[18px] font-medium cursor-pointer dark:text-dark text-light`}
             >
               <Link href={`/#${nav.id}`}>{nav.title}</Link>
             </motion.li>

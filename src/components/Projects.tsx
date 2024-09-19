@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tilt } from "react-tilt";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { githubIcon } from "@/assets";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { projects } from "@/constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { rightArrowIcon, leftArrowIcon } from "@/assets";
 
 type ProjectCardProps = {
   index: number;
@@ -28,7 +29,13 @@ const ProjectCard = ({
   source_code_link,
 }: ProjectCardProps) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 2)}>
+    <motion.div
+      initial={{ opacity: 0, x: 0, scale: 0.8 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      exit={{ opacity: 0, x: 0, scale: 0.8 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      layout
+    >
       <Tilt
         options={{
           max: 45,
@@ -59,8 +66,8 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-white text-[14px]">{description}</p>
+          <h3 className="dark:text-dark text-light font-bold text-[24px]">{name}</h3>
+          <p className="mt-2 dark:text-dark text-light text-[14px]">{description}</p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
@@ -79,42 +86,64 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const goToProjectsDetail = () => {
+  const goToProjectsDetail = () => {};
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  function handleNextSlide() {
+    setCurrentSlide((prev) => (prev + 1) % projects.length);
   }
-  
+
+  function handlePreviousSlide() {
+    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+  }
+
   return (
-    <div className="px-24 py-20 h-screen" id="projects">
+    <div
+      className="px-24 py-20 h-screen w-full overflow-hidden"
+      id="projects"
+    >
       <div className="relative z-50">
         <motion.div variants={textVariant()}>
-          <motion.p variants={textVariant(0.5)} className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
+          <motion.p
+            variants={textVariant(0.5)}
+            className="sm:text-[18px] text-[14px] dark:text-dark text-light uppercase tracking-wider"
+          >
             Team work
           </motion.p>
-          <motion.h2 variants={textVariant(1)} className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+          <motion.h2
+            variants={textVariant(1)}
+            className="dark:text-dark text-light font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"
+          >
             Projects.
           </motion.h2>
         </motion.div>
 
-        <div className="w-full">
-          <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            className="mt-3 text-white text-[17px] max-w-3xl leading-[30px]"
-          >
-            Following projects showcases my skills and experience through
-            real-world examples of my work. Each project is briefly described
-            with links to code repositories and live demos in it. It reflects my
-            ability to solve complex problems, work with different technologies,
-            and manage projects effectively.
-          </motion.p>
-        </div>
-
-        <div className="mt-10 flex flex-wrap gap-7 items-center">
-          {projects.slice(0, 3).map((project, index) => (
-            <ProjectCard key={`${project.name}-${index}`} index={index} {...project} />
+        <div className="flex mt-14 *:shrink-0 gap-2 w-full">
+          {projects.map((project, index) => (
+            <AnimatePresence mode="popLayout" key={`${project.name}-${index}`}>
+              {index >= currentSlide && (
+                <ProjectCard index={index} {...project} />
+              )}
+            </AnimatePresence>
           ))}
-          <motion.div variants={fadeIn("", "tween", 2, 1)} className="flex flex-col border border-white rounded-lg p-2 shadow-gray-400 cursor-pointer hover:scale-105 ease-in duration-300" onClick={goToProjectsDetail}>
-            <span className="text-white">View more</span>
-          </motion.div>
+        </div>
+        <div className="flex gap-4 justify-center mt-2">
+          <button
+            disabled={currentSlide === 0}
+            type="button"
+            onClick={handlePreviousSlide}
+            className={`rounded-full group size-20 p-1.5inline-flex items-center justify-center hover:border ${currentSlide === 0 && 'opacity-50'}`}
+          >
+            <img src={leftArrowIcon.src} alt="left arrow" />
+          </button>
+          <button
+            disabled={currentSlide === projects.length - 1}
+            type="button"
+            onClick={handleNextSlide}
+            className={`rounded-full group size-20 p-1.5 inline-flex items-center justify-center hover:border ${currentSlide === projects.length - 1 && 'opacity-50'}`}
+          >
+            <img src={rightArrowIcon.src} alt="right arrow" />
+          </button>
         </div>
       </div>
     </div>

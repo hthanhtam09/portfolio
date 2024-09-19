@@ -18,7 +18,8 @@ const config: Config = {
         muted: "rgb(var(--muted))",
         accent: "rgb(var(--accent))",
         tertiary: "#151030",
-        dark: "#2EBDFFD0",
+        light: "#8EACCD",
+        dark: "#D2E0FB",
       },
       backgroundImage: {
         "firefly-radial":

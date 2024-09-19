@@ -9,7 +9,7 @@ import { fadeIn, textVariant } from "@/utils/motion";
 import { ProfileName } from "@/enums";
 import { profileDetail } from "@/constants";
 import { QuoteIcon } from "lucide-react";
-import { Experience, TechSkill, HomeButton, Card } from "@/components";
+import { Experience, TechSkill, HomeButton, Card, Sky } from "@/components";
 
 const ProfilePage: FC = () => {
   const pathName = usePathname();
@@ -21,18 +21,25 @@ const ProfilePage: FC = () => {
       : profileKey === ProfileName.THO
       ? profileThoDetail
       : null;
-
   const profileData = profileDetail[profileKey as keyof typeof profileDetail];
 
+  if (!profileData) return null;
+
   return (
-    <div className="relative">
-      <motion.div
-        className="relative w-full h-screen flex justify-center items-center flex-col main"
-        variants={fadeIn("right", "spring", 0.5, 0.75)}
-      >
+    <>
+      <div className="relative w-full h-full z-50">
         <HomeButton />
         {profileImage && (
-          <motion.div variants={textVariant(1)} className="absolute top-[-10%] right-[-25%] z-50 w-full h-full">
+          <motion.div
+            initial={{ translateX: 100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 0.5,
+              duration: 2,
+            }}
+            className="absolute top-0 right-[-25%] z-50 w-full h-full"
+          >
             <img
               src={profileImage.src}
               alt={`Profile ${pathProfileName}`}
@@ -41,23 +48,62 @@ const ProfilePage: FC = () => {
           </motion.div>
         )}
 
-        <motion.div
-          variants={textVariant(1)}
-          className="relative z-50 px-24 pt-24 w-full"
-        >
-          <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
-            Profile
-          </p>
-          <h1 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
-            {pathProfileName}
-          </h1>
-          <span className="text-white font-light md:text-[18px] sm:text-[18px] xs:text-[18px] text-[14px]">
-            - {profileData.position} -
-          </span>
-          <hr className="my-4 w-1/2" />
+        <div className="px-24 pt-24 w-full">
           <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            className="mt-4 text-white text-[17px] max-w-3xl leading-[30px] h-[150px] relative z-50"
+            initial={{ translateX: -100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 0.5,
+              duration: 2,
+            }}
+            className="sm:text-[18px] text-[14px] text-light dark:text-dark uppercase tracking-wider"
+          >
+            Profile
+          </motion.p>
+          <motion.h1
+            initial={{ translateX: -100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 1,
+              duration: 2,
+            }}
+            className="text-light dark:text-dark font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"
+          >
+            {pathProfileName}
+          </motion.h1>
+          <motion.span
+            initial={{ translateX: -100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 1.2,
+              duration: 2.5,
+            }}
+            className="text-light dark:text-dark font-light md:text-[18px] sm:text-[18px] xs:text-[18px] text-[14px]"
+          >
+            - {profileData.position} -
+          </motion.span>
+          <motion.hr
+            initial={{ translateX: -100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 1.5,
+              duration: 2,
+            }}
+            className="my-4 w-1/2"
+          />
+          <motion.p
+            initial={{ translateX: -100, opacity: 0 }}
+            animate={{ translateX: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              delay: 2,
+              duration: 2,
+            }}
+            className="mt-4 text-light dark:text-dark text-[17px] max-w-3xl leading-[30px] h-[150px] relative z-50"
           >
             <QuoteIcon
               aria-hidden="true"
@@ -69,7 +115,7 @@ const ProfilePage: FC = () => {
               className="size-3 ml-1 fill-white stroke-none translate-y-1 inline"
             />
           </motion.p>
-        </motion.div>
+        </div>
         <div className="px-24 mt-20 flex flex-wrap w-full justify-start gap-10">
           {profileData.skills.map((skill, index) => (
             <Card
@@ -81,10 +127,11 @@ const ProfilePage: FC = () => {
             />
           ))}
         </div>
-      </motion.div>
+      </div>
       <Experience profileKey={profileKey} />
       <TechSkill profileKey={profileKey} />
-    </div>
+      <Sky />
+    </>
   );
 };
 

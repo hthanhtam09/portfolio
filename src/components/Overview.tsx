@@ -10,17 +10,17 @@ const Overview = () => {
   return (
     <div className="px-24 pt-24 pb-20 h-screen w-full relative z-50" id="overview">
       <motion.div variants={textVariant()}>
-        <motion.p variants={textVariant(0.5)} className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
+        <motion.p variants={textVariant(0.5)} className="sm:text-[18px] text-[14px] dark:text-dark text-light uppercase tracking-wider">
           Introduction
         </motion.p>
-        <motion.h2 variants={textVariant(1)} className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+        <motion.h2 variants={textVariant(1)} className="dark:text-dark text-light font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
           Overview.
         </motion.h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-white text-[17px] max-w-3xl leading-[30px] relative z-50"
+        className="mt-4 dark:text-dark text-light text-[17px] max-w-3xl leading-[30px] relative z-50"
       >
         We are skilled software developers with experience in TypeScript,
         JavaScript, and expertise in frameworks such as React and Node.js. We

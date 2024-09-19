@@ -10,7 +10,6 @@ import mobileIcon from "@/assets/icons/mobile-icon.png";
 import databaseIcon from "@/assets/icons/database-icon.png";
 import gameIcon from "@/assets/icons/game-icon.png";
 import githubIcon from '@/assets/icons/github-icon.png';
-import rightArrowIcon from '@/assets/icons/rightArrow-icon.png';
 import project1 from "@/assets/images/project-1.png";
 import typescriptIcon from '@/assets/icons/typescript-icon.svg';
 import tailwindcssIcon from '@/assets/icons/tailwindcss-icon.svg';
@@ -29,6 +28,8 @@ import postgresqlIcon from '@/assets/icons/postgresql-icon.svg';
 import mysqlIcon from '@/assets/icons/mysql-icon.svg';
 import reactNativeIcon from '@/assets/icons/reactNative-icon.svg';
 import graphqlIcon from '@/assets/icons/graphql-icon.svg';
+import leftArrowIcon from '@/assets/icons/leftArrow-icon.svg';
+import rightArrowIcon from '@/assets/icons/rightArrow-icon.svg';
 
 export {
     stars,
@@ -61,5 +62,6 @@ export {
     postgresqlIcon,
     mysqlIcon,
     reactNativeIcon,
-    graphqlIcon
+    graphqlIcon,
+    leftArrowIcon
 }

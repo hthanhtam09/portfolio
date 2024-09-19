@@ -82,7 +82,7 @@ const ContactForm = () => {
       <div className="mb-5">
         <label
           htmlFor="username"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium dark:text-dark text-light"
         >
           Username
         </label>
@@ -103,7 +103,7 @@ const ContactForm = () => {
             id="username"
             value={formData.username}
             onChange={handleChange}
-            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 in-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark text-light"
             placeholder="Nguyen Van A"
           />
         </div>
@@ -111,12 +111,12 @@ const ContactForm = () => {
       <div className="mb-5">
         <label
           htmlFor="username"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium dark:text-dark text-light"
         >
           Your Email
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+          <span className="inline-flex items-center px-3 text-sm dark:text-dark text-light bg-gray-200 border border-e-0 border-gray-300 rounded-s-md">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
@@ -133,7 +133,7 @@ const ContactForm = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 dark:text-dark text-light block flex-1 min-w-0 w-full text-sm p-2.5 "
             placeholder="NguyenVanA@gmail.com"
           />
         </div>
@@ -141,7 +141,7 @@ const ContactForm = () => {
       <div className="mb-5">
         <label
           htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium dark:text-dark text-light"
         >
           Your message
         </label>
@@ -150,7 +150,7 @@ const ContactForm = () => {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block p-2.5 w-full text-sm dark:text-dark text-light bg-gray-50 rounded-lg border border-gray-300"
           placeholder="Leave a message..."
         ></textarea>
       </div>
@@ -163,6 +163,7 @@ const ContactForm = () => {
           ))}
         </div>
         <button
+          disabled={formData.email === '' || formData.username === '' || formData.message === ''}
           type="submit"
           className="text-white bg-[#03a9f445] hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
         >
@@ -182,13 +183,13 @@ const Contact = () => {
       <motion.div variants={textVariant()}>
         <motion.p
           variants={textVariant(0.5)}
-          className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider text-center"
+          className="sm:text-[18px] text-[14px] dark:text-dark text-light uppercase tracking-wider text-center"
         >
           - Say hi 👋 -
         </motion.p>
         <motion.h2
           variants={textVariant(1)}
-          className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center"
+          className="dark:text-dark text-light font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center"
         >
           Contact our team
         </motion.h2>

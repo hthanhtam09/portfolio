@@ -28,17 +28,23 @@ const CustomDiv = ({ children, options, className }: CustomDivProps) => {
 };
 
 const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
-    const router = useRouter()
-    
-    const redirectProfile = (profileName: string) => {
-        if (isProfile) return
-        router.push(`/profile/${profileName}`)
-    }
+  const router = useRouter();
 
-    return (
+  const redirectProfile = (profileName: string) => {
+    if (isProfile) return;
+    router.push(`/profile/${profileName}`);
+  };
+
+  return (
     <Tilt className="xs:w-[250px] w-full z-50 bg-white/5 backdrop-blur-[2px] cursor-pointer">
       <motion.div
-        variants={fadeIn("right", "spring", index * 0.5, 2)}
+        initial={{ translateX: -100, opacity: 0 }}
+        animate={{ translateX: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          delay: index * 0.5,
+          duration: 2,
+        }}
         className="w-full p-[1px] rounded-[20px]"
         onClick={() => redirectProfile(name)}
       >
@@ -50,19 +56,18 @@ const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
           }}
           className="border rounded-md py-5 px-12 min-h-[280px] flex justify-center gap-3 items-center flex-col"
         >
-          <img
-            src={icon.src}
-            alt="member"
-            className="w-16 h-16 rounded-full"
-          />
-          {!isProfile && <span className="text-white text-[20px] font-bold text-center">{name.replace(/-/g, " ")}</span>}
-          <h3 className="text-white text-[16px] font-light text-center">
+          <img src={icon.src} alt="member" className="w-16 h-16 rounded-full" />
+          {!isProfile && (
+            <span className="dark:text-dark text-light text-[20px] font-bold text-center">
+              {name.replace(/-/g, " ")}
+            </span>
+          )}
+          <h3 className="dark:text-dark text-light text-[16px] font-light text-center">
             {title}
           </h3>
         </CustomDiv>
       </motion.div>
     </Tilt>
-    
   );
 };
 
