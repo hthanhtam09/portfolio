@@ -87,7 +87,7 @@ const ContactForm = () => {
           Username
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+          <span className="inline-flex items-center px-3 text-sm text-gray-900  border border-e-0 border-gray-300 rounded-s-md">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
@@ -103,7 +103,7 @@ const ContactForm = () => {
             id="username"
             value={formData.username}
             onChange={handleChange}
-            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 in-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark text-light"
+            className="rounded-none rounded-e-lg  border border-gray-300 in-w-0 w-full text-sm p-2.5  dark:text-dark text-light"
             placeholder="Nguyen Van A"
           />
         </div>
@@ -116,7 +116,7 @@ const ContactForm = () => {
           Your Email
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-3 text-sm dark:text-dark text-light bg-gray-200 border border-e-0 border-gray-300 rounded-s-md">
+          <span className="inline-flex items-center px-3 text-sm dark:text-dark text-light border border-e-0 border-gray-300 rounded-s-md">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
@@ -133,7 +133,7 @@ const ContactForm = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 dark:text-dark text-light block flex-1 min-w-0 w-full text-sm p-2.5 "
+            className="rounded-none rounded-e-lg border border-gray-300 dark:text-dark text-light block flex-1 min-w-0 w-full text-sm p-2.5 "
             placeholder="NguyenVanA@gmail.com"
           />
         </div>
@@ -150,7 +150,7 @@ const ContactForm = () => {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="block p-2.5 w-full text-sm dark:text-dark text-light bg-gray-50 rounded-lg border border-gray-300"
+          className="block p-2.5 w-full text-sm dark:text-dark text-light rounded-lg border border-gray-300"
           placeholder="Leave a message..."
         ></textarea>
       </div>
