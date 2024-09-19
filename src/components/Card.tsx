@@ -23,7 +23,7 @@ type CardProps = {
   isProfile?: boolean;
 };
 
-const CustomDiv = ({ children, options, className }: CustomDivProps) => {
+const CustomDiv = ({ children, className }: CustomDivProps) => {
   return <div className={className}>{children}</div>;
 };
 
@@ -36,16 +36,16 @@ const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
   };
 
   return (
-    <Tilt className="xs:w-[250px] w-full z-50 bg-white/5 backdrop-blur-[2px] cursor-pointer">
+    <Tilt className="xs:w-[250px] w-full z-50 cursor-pointer">
       <motion.div
         initial={{ translateX: -100, opacity: 0 }}
         animate={{ translateX: 0, opacity: 1 }}
         transition={{
           type: "spring",
           delay: index * 0.5,
-          duration: 2,
+          duration: 5,
         }}
-        className="w-full p-[1px] rounded-[20px]"
+        className="w-full p-[1px] rounded-[20px] bg-white/5 backdrop-blur-[2px] "
         onClick={() => redirectProfile(name)}
       >
         <CustomDiv

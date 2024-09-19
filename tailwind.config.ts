@@ -26,7 +26,6 @@ const config: Config = {
           "radial-gradient(50% 50% at 50% 50%, rgba(253, 255, 80, 0.5) 0%, rgba(217,217,217, 0) 100%)",
         stars: "url('../assets/images/stars.png')",
         twinkling: "url('../assets/images/twinkling.png')",
-        clouds: "url('../assets/images/clouds.png')",
         clouds2: "url('../assets/images/clouds_2.png')",
         clouds3: "url('../assets/images/clouds_3.png')",
       },

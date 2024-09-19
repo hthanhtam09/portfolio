@@ -20,7 +20,7 @@ const Sky = () => {
             <div className="absolute inset-0 bg-[#03a9f445]"></div>
             <div className="absolute inset-0 flex items-center h-[445px]">
               <div className="absolute inset-0 bg-clouds2 animate-move1"></div>
-              <div className="absolute inset-0 bg-clouds3 animate-move2"></div>
+              <div className="absolute inset-0 bg-clouds2 animate-move2"></div>
             </div>
             <div className="absolute top-[10%] inset-0 bg-clouds3 animate-move2"></div>
           </div>

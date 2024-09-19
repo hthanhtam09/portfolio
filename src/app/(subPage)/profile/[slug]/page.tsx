@@ -27,8 +27,8 @@ const ProfilePage: FC = () => {
 
   return (
     <>
+      <HomeButton />
       <div className="relative w-full h-full z-50">
-        <HomeButton />
         {profileImage && (
           <motion.div
             initial={{ translateX: 100, opacity: 0 }}
