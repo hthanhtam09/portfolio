@@ -11,7 +11,7 @@ import {
   reactIcon,
   nextjsIcon,
   tailwindcssIcon,
-  nodeIcon,
+  nodejsIcon,
   postgresqlIcon,
   mysqlIcon,
   reactNativeIcon,
@@ -378,7 +378,7 @@ export const technicalSkill = {
       },
       {
         name: "NodeJS",
-        icon: nodeIcon.src,
+        icon: nodejsIcon.src,
       },
       {
         name: "MySQL",
@@ -434,7 +434,7 @@ export const technicalSkill = {
       },
       {
         name: "NodeJS",
-        icon: nodeIcon.src,
+        icon: nodejsIcon.src,
       },
       {
         name: "PostgreSQL",

@@ -1,5 +1,6 @@
 import stars from "@/assets/images/stars.png";
 import twinkling from "@/assets/images/twinkling.png";
+import clouds from "@/assets/images/clouds.png";
 import profileTam from "@/assets/images/tam.png";
 import profileTho from "@/assets/images/tho.png";
 import profileThoDetail from "@/assets/images/profileTho.png";
@@ -15,7 +16,6 @@ import tailwindcssIcon from '@/assets/icons/tailwindcss-icon.svg';
 import sassIcon from '@/assets/icons/sass-icon.svg';
 import reduxIcon from '@/assets/icons/redux-icon.svg';
 import reactIcon from '@/assets/icons/react-icon.svg';
-import nodeIcon from '@/assets/icons/nodejs-icon.svg';
 import nextjsIcon from '@/assets/icons/nextjs-icon.svg';
 import muiIcon from '@/assets/icons/mui-icon.svg';
 import mongodbIcon from '@/assets/icons/mongodb-icon.svg';
@@ -33,6 +33,7 @@ import rightArrowIcon from '@/assets/icons/rightArrow-icon.svg';
 export {
     stars,
     twinkling,
+    clouds,
     profileTam,
     profileTho,
     profileThoDetail,
@@ -49,7 +50,6 @@ export {
     sassIcon,
     reduxIcon,  
     reactIcon,
-    nodeIcon,
     nextjsIcon,
     muiIcon,
     mongodbIcon,
