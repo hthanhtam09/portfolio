@@ -14,7 +14,18 @@ interface ExperienceProps {
   profileKey: string;
 }
 
-const ExperienceCard = ({ experience }: any) => {
+interface ExperienceCardProps {
+  experience: {
+    title: string;
+    company_name: string;
+    icon: string;
+    iconBg: string;
+    date: string;
+    points: string[];
+}
+}
+
+const ExperienceCard = ({ experience }: ExperienceCardProps) => {
   return (
     <VerticalTimelineElement
       visible
