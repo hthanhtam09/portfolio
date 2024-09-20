@@ -46,7 +46,7 @@ const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
               scale: 1,
               speed: 450,
             }}
-            className="border rounded-md py-5 px-12 min-h-[280px] flex justify-center gap-3 items-center flex-col"
+            className="border dark:border-dark border-light rounded-md py-5 px-12 min-h-[280px] flex justify-center gap-3 items-center flex-col"
           >
             <img src={icon.src} alt="member" className="w-16 h-16 rounded-full" />
             {!isProfile && (

@@ -37,6 +37,7 @@ const ProjectCard = React.forwardRef<HTMLDivElement, ProjectCardProps>(
         exit={{ opacity: 0, x: 0, scale: 0.8 }}
         transition={{ delay: 0.2 * index, duration: 1, ease: "easeInOut" }}
         onClick={() => goToProjectsDetail(name)}
+        layout
       >
         <Tilt
           options={{

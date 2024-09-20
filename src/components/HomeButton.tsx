@@ -20,14 +20,14 @@ const HomeButton = ({ setIsFirstMount }: HomeButtonProps) => {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 1 }}
-      className="text-foreground rounded-full flex items-center justify-center
+      className="text-foreground border-light dark:border-dark rounded-full flex items-center justify-center
         custom-bg fixed top-4 left-4 w-fit self-start z-[9999] cursor-pointer
         "
       aria-label={"home"}
       onClick={goToBackHomePage}
     >
-      <span className="relative w-14 h-14 p-4  hover:text-white">
-        <Home className="w-full h-auto" strokeWidth={1.5} />
+      <span className="relative w-14 h-14 p-4 hover:text-light dark:hover:text-dark">
+        <Home className="w-full h-auto text-light dark:text-dark" strokeWidth={1.5} />
 
         <span className="peer bg-transparent absolute top-0 left-0 w-full h-full" />
 
