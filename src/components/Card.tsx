@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { Tilt } from "react-tilt";
 
 type CustomDivProps = {
@@ -27,45 +27,39 @@ const CustomDiv = ({ children, className }: CustomDivProps) => {
 };
 
 const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
-  const router = useRouter();
-
-  const redirectProfile = (profileName: string) => {
-    if (isProfile) return;
-    router.push(`/profile/${profileName}`);
-  };
-
   return (
     <Tilt className="xs:w-[250px] w-full z-50 cursor-pointer">
-      <motion.div
-        initial={{ translateX: -100, opacity: 0 }}
-        animate={{ translateX: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          delay: index * 0.5,
-          duration: 5,
-        }}
-        className="w-full p-[1px] rounded-[20px] bg-white/5 backdrop-blur-[2px] "
-        onClick={() => redirectProfile(name)}
-      >
-        <CustomDiv
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
+      <Link href={isProfile ? "#" : `/profile/${name}`} passHref>
+        <motion.div
+          initial={{ translateX: -100, opacity: 0 }}
+          animate={{ translateX: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            delay: index * 0.5,
+            duration: 5,
           }}
-          className="border rounded-md py-5 px-12 min-h-[280px] flex justify-center gap-3 items-center flex-col"
+          className="w-full p-[1px] rounded-[20px] bg-white/5 backdrop-blur-[2px]"
         >
-          <img src={icon.src} alt="member" className="w-16 h-16 rounded-full" />
-          {!isProfile && (
-            <span className="dark:text-dark text-light text-[20px] font-bold text-center">
-              {name.replace(/-/g, " ")}
-            </span>
-          )}
-          <h3 className="dark:text-dark text-light text-[16px] font-light text-center">
-            {title}
-          </h3>
-        </CustomDiv>
-      </motion.div>
+          <CustomDiv
+            options={{
+              max: 45,
+              scale: 1,
+              speed: 450,
+            }}
+            className="border rounded-md py-5 px-12 min-h-[280px] flex justify-center gap-3 items-center flex-col"
+          >
+            <img src={icon.src} alt="member" className="w-16 h-16 rounded-full" />
+            {!isProfile && (
+              <span className="dark:text-dark text-light text-[20px] font-bold text-center">
+                {name.replace(/-/g, " ")}
+              </span>
+            )}
+            <h3 className="dark:text-dark text-light text-[16px] font-light text-center">
+              {title}
+            </h3>
+          </CustomDiv>
+        </motion.div>
+      </Link>
     </Tilt>
   );
 };

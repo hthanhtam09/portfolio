@@ -8,7 +8,7 @@ const FirstMountContext = createContext({
   setIsFirstMount: (value: React.SetStateAction<boolean>) => {},
 });
 
-export const useFirstMount = () => {
+export const useFirstMountSubPage = () => {
   const context = useContext(FirstMountContext);
 
   if (!context) {
@@ -30,7 +30,7 @@ export function FirstMountProvider({
     if (isFirstMount) {
       timer = setTimeout(() => {
         setIsFirstMount(false);
-      }, 3500);
+      }, 2500);
     }
 
     return () => clearTimeout(timer);

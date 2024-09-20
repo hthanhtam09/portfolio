@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./provider";
+import { FirstMountProvider } from "./provider";
+import { AnimatePresence } from "framer-motion";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={montserrat.className}>
-        <Providers>{children}</Providers>
+        <AnimatePresence mode="wait">
+          <FirstMountProvider>{children}</FirstMountProvider>
+        </AnimatePresence>
       </body>
     </html>
   );

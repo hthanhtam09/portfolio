@@ -1,10 +1,16 @@
 "use client";
 
-import { useState } from "react";
-import SplashScreen from "@/components/SplashScreen";
-
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Sky } from "@/components";
+import InitialTransition from "@/components/PageTransition/InitialTransition";
+import { useFirstMount } from "./provider";
+
+const content = (isFirstMount: boolean) => ({
+  animate: {
+    transition: { staggerChildren: 0.1, delayChildren: isFirstMount ? 2.8 : 0 },
+  },
+});
 
 const BillBoard = dynamic(
   () => import("@/components").then((mod) => mod.BillBoard),
@@ -39,26 +45,27 @@ const Contact = dynamic(
 );
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  const finishLoading = () => {
-    setLoading(false);
-  };
+  const { isFirstMount } = useFirstMount();
 
   return (
-    <>
-      {loading ? (
-        <SplashScreen finishLoading={finishLoading} />
+    <motion.main exit={{ opacity: 0 }}>
+      {isFirstMount ? (
+        <InitialTransition />
       ) : (
-        <div className="main fade-in fade-in-visible">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={content(isFirstMount)}
+          className="main"
+        >
           <Navbar />
           <BillBoard />
           <Overview />
           <Projects />
           <Contact />
           <Sky />
-        </div>
+        </motion.div>
       )}
-    </>
+    </motion.main>
   );
 }

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +11,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         inter: ["var(--font-inter)"],
+      },
+      bg: {
+        dark: "#D2E0FB",
+        light: "#8EACCD",
       },
       colors: {
         background: "rgb(var(--background))",
@@ -48,16 +52,16 @@ const config: Config = {
           "100%": { backgroundPosition: "10000px 0" },
         },
         radiate: {
-          '0%': { boxShadow: '0 0 0 0 rgba(32, 105, 149, 0.6)' },
-          '100%': { boxShadow: '0 0 0 1.25em rgba(32, 105, 149, 0)' },
+          "0%": { boxShadow: "0 0 0 0 rgba(32, 105, 149, 0.6)" },
+          "100%": { boxShadow: "0 0 0 1.25em rgba(32, 105, 149, 0)" },
         },
         bop: {
-          '0%': { transform: 'scale(0.9)' },
-          '50%, 100%': { transform: 'scale(1)' },
+          "0%": { transform: "scale(0.9)" },
+          "50%, 100%": { transform: "scale(1)" },
         },
         bopB: {
-          '0%': { transform: 'scale(0.9)' },
-          '80%, 100%': { transform: 'scale(1) rotateZ(-3deg)' },
+          "0%": { transform: "scale(0.9)" },
+          "80%, 100%": { transform: "scale(1) rotateZ(-3deg)" },
         },
       },
       animation: {
@@ -65,9 +69,9 @@ const config: Config = {
         "spin-slow-reverse": "spin-reverse 40s linear infinite",
         twinkling: "twinkling 200s linear infinite",
         clouds: "clouds 200s linear infinite",
-        radiate: 'radiate 2s infinite',
-        bop: 'bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate',
-        bopB: 'bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate',
+        radiate: "radiate 2s infinite",
+        bop: "bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate",
+        bopB: "bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate",
       },
       screens: {
         xs: "480px",

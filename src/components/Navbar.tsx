@@ -11,7 +11,7 @@ const Navbar = () => {
       className={`sm:px-16 px-6 w-full flex items-center py-5 absolute top-0 z-[99999]`}
     >
       <motion.div initial="hidden" animate="show" className="w-full flex justify-between items-center">
-        <Link href="/#billboard" className="flex items-center gap-2">
+        <Link href="/#billboard" className="flex items-center gap-2" >
           <motion.h1 variants={textVariant()} className="text-3xl font-bold cursor-pointer flex dark:text-dark text-light">
             Portfolio
           </motion.h1>

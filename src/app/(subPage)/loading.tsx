@@ -1,6 +1,7 @@
-'use client'
-
+"use client";
 
 export default function Loading() {
-    return <></>
-  }
+  return (
+    <div className="relative z-50 flex items-center justify-center w-full bg-dark" />
+  );
+}

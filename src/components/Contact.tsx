@@ -77,7 +77,6 @@ const ContactForm = () => {
       variants={textVariant()}
       onSubmit={handleSubmit}
       className="w-1/2 border rounded-3xl p-20"
-      ref={formRef}
     >
       <div className="mb-5">
         <label
@@ -157,7 +156,7 @@ const ContactForm = () => {
       <div className="flex justify-between items-center">
         <div className="flex justify-center items-center gap-4">
           {IconImage.map((icon) => (
-            <Link key={icon.alt} href={icon.href}>
+            <Link key={icon.alt} href={icon.href} >
               <img src={icon.src} alt={icon.alt} className="w-8 h-8" />
             </Link>
           ))}

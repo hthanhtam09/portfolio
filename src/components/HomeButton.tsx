@@ -3,11 +3,16 @@ import { motion } from "framer-motion";
 import { Home } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const HomeButton = () => {
+type HomeButtonProps = {
+  setIsFirstMount: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const HomeButton = ({ setIsFirstMount }: HomeButtonProps) => {
   const router = useRouter();
 
   const goToBackHomePage = () => {
     router.push(`/`);
+    setIsFirstMount(true)
   };
 
   return (
