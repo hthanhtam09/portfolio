@@ -16,7 +16,7 @@ const Typewriter: React.FC = () => {
   return (
     <h1 className={cn('text-white text-8xl px-20 typewriterTitle z-[9999]', montserrat.className)}>
       Together, we can turn your vision into reality—be it <br />
-      <span className="dark:text-dark text-light">{text}</span>
+      <span className="text-white">{text}</span>
       <Cursor />
     </h1>
   );

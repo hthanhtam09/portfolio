@@ -476,7 +476,20 @@ export const projectDetail = {
   [ProjectName.CARRENT]: {
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-    technical: ["ReactJs", "Nodejs", "MUI"],
+    technical: [
+      {
+        name: "ReactNative",
+        icon: reactNativeIcon.src,
+      },
+      {
+        name: "SASS",
+        icon: sassIcon.src,
+      },
+      {
+        name: "MySQL",
+        icon: mysqlIcon.src,
+      },
+    ],
     background: project1.src,
     images: [
       {
@@ -496,7 +509,20 @@ export const projectDetail = {
   [ProjectName.JOBIT]: {
     description:
       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    technical: ["ReactJs", "Nodejs", "MUI"],
+    technical: [
+      {
+        name: "ReactJs",
+        icon: reactIcon.src,
+      },
+      {
+        name: "TailwindCSS",
+        icon: tailwindcssIcon.src,
+      },
+      {
+        name: "PostgreSQL",
+        icon: postgresqlIcon.src,
+      },
+    ],
     background: project1.src,
     images: [
       {
@@ -517,7 +543,20 @@ export const projectDetail = {
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
 
-    technical: ["ReactJs", "Nodejs", "MUI"],
+    technical: [
+      {
+        name: "NextJS",
+        icon: nextjsIcon.src,
+      },
+      {
+        name: "TailwindCSS",
+        icon: tailwindcssIcon.src,
+      },
+      {
+        name: "NodeJS",
+        icon: nodejsIcon.src,
+      },
+    ],
     background: project1.src,
     images: [
       {

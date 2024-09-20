@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 const blackBox = {
   initial: {
     height: "100vh",
-    bottom: 0,
   },
   animate: {
     height: 0,

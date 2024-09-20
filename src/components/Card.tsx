@@ -29,7 +29,7 @@ const CustomDiv = ({ children, className }: CustomDivProps) => {
 const Card = ({ index, title, icon, name, isProfile }: CardProps) => {
   return (
     <Tilt className="xs:w-[250px] w-full z-50 cursor-pointer">
-      <Link href={isProfile ? "#" : `/profile/${name}`} passHref>
+      <Link href={isProfile ? "#" : `/profile/${name}`} passHref prefetch>
         <motion.div
           initial={{ translateX: -100, opacity: 0 }}
           animate={{ translateX: 0, opacity: 1 }}

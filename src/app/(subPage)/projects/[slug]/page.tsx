@@ -56,7 +56,7 @@ const ProjectPage = () => {
                   delay: 0.5,
                   duration: 2,
                 }}
-                className="dark:text-dark text-light text-5xl lg:text-7xl flex items-center"
+                className="dark:text-dark text-light text-5xl lg:text-7xl flex items-center justify-center"
               >
                 <span
                   className={cn("animate-bop block", luckiestGuy.className)}
@@ -70,28 +70,45 @@ const ProjectPage = () => {
                 </span>
               </motion.h1>
 
-              <div className="text-lg py-10 flex gap-2">
-                <span className="font-bold">Description</span>:
-                <p className="text-light dark:text-dark ">
+              <div className="text-lg py-10 flex justify-center gap-2">
+                <p className="text-light dark:text-dark">
                   {projectData.description}
                 </p>
               </div>
-              <div className="flex gap-2">
-                <span className="font-bold">Technicals</span>:
-                {projectData.technical.map((tech, index) => (
-                  <span
-                    className="text-light dark:text-dark"
-                    key={`${tech}_${index}`}
-                  >
-                    {tech}
-                    {index === 0 && projectData.technical.length === 1
-                      ? ". "
-                      : index !== projectData.technical.length - 1
-                      ? ", "
-                      : ". "}
-                  </span>
-                ))}
-              </div>
+
+              <hr className="w-1/2 mx-auto my-20" />
+
+              <motion.div variants={textVariant()}>
+                <motion.p
+                  variants={textVariant(0.5)}
+                  className="sm:text-[18px] text-[14px] dark:text-dark text-light tracking-wider text-center"
+                >
+                  Technicals of project
+                </motion.p>
+                <motion.h2
+                  variants={textVariant(1)}
+                  className="dark:text-dark text-light font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center"
+                >
+                  Technicals
+                </motion.h2>
+                <motion.div
+                  variants={textVariant(1)}
+                  className="flex justify-center gap-4"
+                >
+                  {projectData.technical.map((tech, index) => (
+                    <div key={`${tech.name}_${index}`}>
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="w-20 h-20"
+                      />
+                      <span className="block dark:text-dark text-light text-center pt-4">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
 
               <hr className="w-1/2 mx-auto my-20" />
 
