@@ -20,15 +20,14 @@ export function Cat() {
   useFrame(({ clock }) => {
     if (catRef.current) {
       const time = clock.getElapsedTime() * 0.2;
-      const rightBoundary = 4.9; // limit right position
-      const leftBoundary = -4.9; // limit left position
+      const rightBoundary = 4.89; // limit right position
+      const leftBoundary = -4.89; // limit left position
   
       catRef.current.position.x = radius * Math.cos(time);
-
-      if (catRef.current.position.x > rightBoundary) {
+      if (catRef.current.position.x >= rightBoundary) {
         catRef.current.rotation.set(0, -Math.PI / 2, 0);
       } 
-      else if (catRef.current.position.x < leftBoundary) {
+      else if (catRef.current.position.x <= leftBoundary) {
         catRef.current.rotation.set(0, Math.PI / 2, 0);
 
       }

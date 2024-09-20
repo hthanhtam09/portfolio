@@ -3,7 +3,7 @@ import Typewriter from "./Typewriter";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { Canvas } from "@react-three/fiber";
 import Loader from "./Loader";
-import { Bird, Cat, House } from "./Models";
+import { Bird, Cat, Dog, House } from "./Models";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 import MoonSun from "./MoonSun";
@@ -62,6 +62,7 @@ const BillBoard = () => {
           />
           <Cat />
           <Bird />
+          <Dog />
         </Suspense>
       </Canvas>
 
