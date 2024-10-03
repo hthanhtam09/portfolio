@@ -30,7 +30,7 @@ export function FirstMountProvider({
     if (isFirstMount) {
       timer = setTimeout(() => {
         setIsFirstMount(false);
-      }, 3500);
+      }, 2500);
     }
 
     return () => clearTimeout(timer);
